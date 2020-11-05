@@ -12,7 +12,12 @@
   "scripts": {},
   "author": "Charles A Brouwers",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CABrouwers/node-red-contrib-telnet/issues"
+  },
+  "homepage": "https://github.com/CABrouwers/node-red-contrib-telnet",
   "keywords": [
+    "telnet",
     "node-red"
   ],
   "node-red": {
