@@ -1,0 +1,103 @@
+
+
+<script type="text/javascript">
+
+    const regIP = /^[A-Za-z0-9]+([\-\.]{1}[A-Za-z0-9]+)*\.[A-Za-z]{2,5}$/
+    const regURL = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+
+
+    is_URL_or_IP =
+        (s) => {
+            return regIP.test(s) || regURL.test(s)
+        }
+
+    RED.nodes.registerType('telnet-connection', {
+        category: 'config',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            address: {
+                value: "127.0.0.1",
+                validate: is_URL_or_IP
+            },
+            port: { value: 23 },
+            inDelimiter: { value: "\n" },
+            outDelimiter: { value: "\n"  },
+            timeOut: { value: 1500 },
+            clearOut: { value: 0 },
+            openTries: { value: 1 },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "file.png",
+        label: function () {
+            return this.name || "connection";
+        },
+
+    })
+
+</script>
+
+<script type="text/html" data-template-name="telnet-connection">
+
+    <div class="form-row">
+        <label for="node-config-input-name">
+            <i class="fa fa-tag"></i>
+            <span> Name</span>
+        </label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-address">
+            <i class="fa fa-at"></i> Address
+        </label>
+        <input type="text" id="node-config-input-address" placeholder="127.0.0.1">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port"><i class="fa">&#x3a;</i>  Port</label>
+        <input type="number" id="node-config-input-port" placeholder="23">
+    </div>
+
+    <hr>
+    <div>
+        <h2>
+            <label><i class="fa fa-cog"></i> Advanced</label>
+        </h2>
+    </div>
+
+    <div class="form-row">
+        <label for="node-config-input-inDelimiter"><i class="fa fa-level-down"></i>  In end mark</label>
+        <input type="text" id="node-config-input-inDelimiter" style="width:70%" placeholder="/\r\n|\n|\r/">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-outDelimiter"><i class="fa fa-level-down"></i>  Out end mark</label>
+        <input type="text" id="node-config-input-outDelimiter" placeholder="\n">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-timeOut"><i class="fa fa-clock-o"></i> Time out</label>
+        <input type="number" id="node-config-input-timeOut" placeholder="1500">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-clearOut"><i class="fa fa-clock-o"></i> Clear out</label>
+        <input type="number" id="node-config-input-clearOut" placeholder="0">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-openTries"><i class="fa fa-refresh"></i> Open tries</label>
+        <input type="number" id="node-config-input-openTries" placeholder="1">
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="telnet-connection">
+    <p>A action as a telnet client.</p>
+    <h3>Details</h3>
+    <h4>Connection</h4>
+    <p>In most cases, all the other parameters can be ignored.</p>
+    <h4>more details</h4>
+    <p>
+        until documentation is available check
+        https://github.com/CABrouwers/telnet-engine
+
+        This mode module is based on this package and the setting are the same
+    </p>
+</script>

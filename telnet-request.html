@@ -1,0 +1,98 @@
+﻿<script type="text/javascript">
+
+    RED.nodes.registerType('telnet-request', {
+        category: 'network',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            connection: { value: "", type: "telnet-connection" },
+            ending: {
+                value: "",
+                validate: RED.validators.typedInput('endingType')
+            },
+            endingType: {
+                value: 'str'
+            },
+            error : { value: "error" },
+        },
+        inputs: 1,
+        outputs: 3,
+        icon: "read.png",
+        label: function () {
+            return this.name || "request";
+        },
+        inputLabels: "request text",
+        outputLabels: ["string","array","error"],
+        oneditprepare: function () {
+            $('#node-input-ending').typedInput({
+                default: 'str',
+                typeField: $("#node-input-endingType"),
+                types: ['str',
+                                        {
+                        value: "rgx",
+                        label: "regEx",
+                        icon: "fa fa-search",
+
+                    },
+                    {
+                        value: "lin",
+                        label: "lines",
+                        icon: "red/images/typedInput/09.png",
+                        validate: function (v) { return !isNaN(v) }
+                    },
+
+
+
+                    {
+                        value: "tim",
+                        label: "millis",
+                        icon: "fa fa-clock-o"
+                    },
+                ]
+            });
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="telnet-request">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-connection"><i class="icon-tag"></i>Connection</label>
+        <input type="text" id="node-input-connection" placeholder="">
+    </div>
+    <hr>
+    <div class="form-row">
+        <h2>
+            <label><i class="fa fa-cog"></i> Advanced</label>
+        </h2>
+    </div>
+    <div class="form-row">
+        <label for="node-input-ending"><i class="fa fa-scissors"></i> Ending</label>
+        <input type="text" id="node-input-ending" style="width:70%">
+        <input type="hidden" id="node-input-endingType" placeholder="str">
+    </div>
+    <div class="form-row">
+        <label for="node-input-error"><i class="fa fa-exclamation-triangle"></i> Error</label>
+        <input type="text" id="node-input-error" placeholder="empty">
+    </div>
+
+</script>
+
+<script type="text/html" data-help-name="telnet-request">
+    <p>A node that provides output from a telnet client connection</p>
+    <h3>Ouput</h3>
+    <dl class="message-properties">
+        <dt>
+            <code>payload</code>
+            <span class="property-type">string</span>
+        </dt>
+        <dd>
+            Line of text received
+        </dd>
+    </dl>
+    <h3>Details</h3>
+    <p>... more to come ... </p>
+</script>

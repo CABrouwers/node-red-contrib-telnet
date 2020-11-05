@@ -1,0 +1,43 @@
+﻿<script type="text/javascript">
+    RED.nodes.registerType('telnet-echo', {
+        category: 'network',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            connection: { value: "", type: "telnet-connection" },
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: "read.png",
+        label: function () {
+            return this.name || "echo";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="telnet-echo">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-connection"><i class="icon-tag"></i>Connection</label>
+        <input type="text" id="node-input-connection" placeholder="telnet-echo">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="telnet-echo">
+    <p>A node that provides output from a telnet client connection</p>
+    <h3>Ouput</h3>
+    <dl class="message-properties">
+        <dt>
+            <code>payload</code>
+            <span class="property-type">string</span>
+        </dt>
+        <dd>
+            Line of text received
+        </dd>
+    </dl>
+    <h3>Details</h3>
+    <p>... more to come ... </p>
+</script>

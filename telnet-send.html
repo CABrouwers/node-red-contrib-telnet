@@ -1,0 +1,47 @@
+﻿<script type="text/javascript">
+    RED.nodes.registerType('telnet-send', {
+        category: 'network',
+        color: '#c0c0c0',
+        defaults: {
+            name: { value: "" },
+            connection: { value: "", type: "telnet-connection" },
+        },
+        inputs: 1,
+        outputs: 0,
+        icon: "sender.svg",
+        label: function () {
+            return this.name || "send";
+        }
+    })
+
+
+</script>
+
+<script type="text/html" data-template-name="telnet-send">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-connection"><i class="icon-tag"></i> Connection</label>
+        <input type="text" id="node-input-connection" placeholder="connection">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="telnet-send">
+    <p>A node used to send data thry a bidirectional telnel client connection.</p>
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>
+            <code>payload</code>
+            <span class="property-type">string</span>
+        </dt>
+        <dd>date to be sent </dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>
+        ... to do ...
+    </p>
+
+</script>

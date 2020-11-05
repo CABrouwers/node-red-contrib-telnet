@@ -1,0 +1,7 @@
+*.njsproj.*
+*.sln
+.vs/ 
+.git/
+bin/
+obj/
+*.npmignore

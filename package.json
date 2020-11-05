@@ -1,0 +1,27 @@
+{
+  "name": "node-red-contrib-telnet-client",
+  "version": "1.0.1",
+  "description": "bi-directional telnet client connection",
+  "main": "index.js",
+  "dependencies": {
+    "node-fetch": "^2.6.0",
+    "openpromise": "^2.2.2",
+    "telnet-engine": "^1.2.5"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "Charles A Brouwers",
+  "license": "ISC",
+  "keywords": [
+    "node-red"
+  ],
+  "node-red": {
+    "nodes": {
+      "telnet-connection": "telnet-connection.js",
+      "telnet-read": "telnet-read.js",
+      "telnet-send": "telnet-send.js",
+      "telnet-request": "telnet-request.js",
+      "telnet-echo": "telnet-echo.js"
+    }
+  }
+}
