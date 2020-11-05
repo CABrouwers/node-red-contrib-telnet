@@ -1,11 +1,11 @@
 {
   "name": "node-red-contrib-telnet-client",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "bi-directional telnet client connection",
   "main": "index.js",
   "dependencies": {
     "node-fetch": "^2.6.0",
-    "openpromise": "^2.2.2",
+    "openpromise": "^2.3.3",
     "telnet-engine": "^1.2.5"
   },
   "devDependencies": {},
