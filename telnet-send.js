@@ -1,7 +1,7 @@
 
 
 module.exports = function (RED) {
-    const te = require("C:/Users/Charles-Andre.HOME/source/repos/telnet-engine/index.js")
+    const te = require('telnet-engine')
     function senderNode(config) {
 
         RED.nodes.createNode(this, config);
